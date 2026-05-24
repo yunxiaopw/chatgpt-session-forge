@@ -218,6 +218,11 @@ Supported providers:
 
 The provider compatibility layer references the Cloudflare Temp Email / Cloud Mail API patterns from [FoundZiGu/GuJumpgate](https://github.com/FoundZiGu/GuJumpgate). This project only adds verification-mail compatibility, not GuJumpgate's repository automation.
 
+## Acknowledgements
+
+- Thanks to [FoundZiGu/GuJumpgate](https://github.com/FoundZiGu/GuJumpgate) for the Cloudflare Temp Email and Cloud Mail API ideas.
+- Thanks to [DanOps-1/Gpt-Agreement-Payment](https://github.com/DanOps-1/Gpt-Agreement-Payment) for the ChatGPT protocol-login flow reference.
+
 ## Data Storage
 
 Runtime account data is stored locally in:

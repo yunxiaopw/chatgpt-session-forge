@@ -219,6 +219,11 @@ Cockpit 导出采用 `cockpit-tools` 当前导入逻辑支持的扁平 Codex tok
 
 该兼容层参考了 [FoundZiGu/GuJumpgate](https://github.com/FoundZiGu/GuJumpgate) 中 Cloudflare Temp Email / Cloud Mail 的接口思路；本项目没有合并它的仓管功能，只在取验证码邮件这层增加兼容。
 
+## 致谢
+
+- 感谢 [FoundZiGu/GuJumpgate](https://github.com/FoundZiGu/GuJumpgate) 提供 Cloudflare Temp Email 和 Cloud Mail 的接口思路。
+- 感谢 [DanOps-1/Gpt-Agreement-Payment](https://github.com/DanOps-1/Gpt-Agreement-Payment) 提供 ChatGPT 协议登录流程参考。
+
 ## 本地数据
 
 运行时账号数据保存在：
