@@ -310,6 +310,12 @@ async function renderAccountList(highlightIds = null) {
   });
 }
 
+function refreshLoginTableIfAvailable() {
+  if (typeof renderLoginTable === 'function') {
+    renderLoginTable();
+  }
+}
+
 function updateSelectAllState() {
   const selectAll = document.getElementById('selectAll');
   if (!selectAll) return;
@@ -342,6 +348,7 @@ async function deleteAccount(id) {
     try {
       await fetch(`/api/accounts/${id}`, { method: 'DELETE' });
       renderAccountList();
+      refreshLoginTableIfAvailable();
       showToast('已删除邮箱', 'info');
       addLog('删除邮箱', 'info');
     } catch (err) {
@@ -368,6 +375,7 @@ async function deleteSelectedAccounts() {
         body: JSON.stringify({ ids }),
       });
       renderAccountList();
+      refreshLoginTableIfAvailable();
       showToast(`已删除 ${ids.length} 个邮箱`, 'success');
       addLog(`批量删除 ${ids.length} 个邮箱`, 'info');
     } catch (err) {
@@ -681,6 +689,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showImportSuccessBanner(data.imported, data.duplicates);
         addLog(`导入 ${data.imported} 个邮箱 (重复 ${data.duplicates} 个)`, 'success');
         renderAccountList();
+        refreshLoginTableIfAvailable();
       } else if (data.duplicates > 0) {
         showToast(`所有 ${data.duplicates} 个邮箱都已存在`, 'warning');
       } else {
@@ -714,6 +723,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(async () => {
       await fetch('/api/accounts/clear', { method: 'DELETE' });
       renderAccountList();
+      refreshLoginTableIfAvailable();
       showToast('已清空全部邮箱', 'info');
       addLog('清空所有邮箱', 'warning');
     }, 300);
